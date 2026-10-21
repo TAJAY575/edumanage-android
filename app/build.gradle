@@ -10,8 +10,10 @@ android {
         applicationId "com.edumanage.app"
         minSdk 21
         targetSdk 34
-        versionCode 1
-        versionName "1.0.0"
+        // CI passes GITHUB_RUN_NUMBER so every release has a higher versionCode and
+        // installs over the previous one (a fixed versionCode refuses to update).
+        versionCode Integer.parseInt(System.getenv("GITHUB_RUN_NUMBER") ?: "2")
+        versionName "1.0.1"
     }
 
     signingConfigs {

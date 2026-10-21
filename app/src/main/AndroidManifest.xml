@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EduManage">
 
+        <meta-data
+            android:name="asset_statements"
+            android:resource="@string/asset_statements" />
+
         <activity
             android:name="com.google.androidbrowserhelper.trusted.LauncherActivity"
             android:exported="true">
@@ -17,18 +21,18 @@
             <!-- URL that opens when the app launches -->
             <meta-data
                 android:name="android.support.customtabs.trusted.DEFAULT_URL"
-                android:value="https://systemmanagement-chi.vercel.app" />
+                android:value="https://edumanageja.com" />
 
             <!-- Match the web app theme colour -->
             <meta-data
                 android:name="android.support.customtabs.trusted.STATUS_BAR_COLOR"
-                android:value="@color/colorPrimary" />
+                android:resource="@color/colorPrimary" />
             <meta-data
                 android:name="android.support.customtabs.trusted.STATUS_BAR_COLOR_DARK"
-                android:value="@color/colorPrimary" />
+                android:resource="@color/colorPrimary" />
             <meta-data
                 android:name="android.support.customtabs.trusted.NAVIGATION_BAR_COLOR"
-                android:value="@color/colorPrimary" />
+                android:resource="@color/colorPrimary" />
 
             <!-- Fall back to Chrome Custom Tab if TWA is unavailable -->
             <meta-data
@@ -47,7 +51,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
                     android:scheme="https"
-                    android:host="systemmanagement-chi.vercel.app" />
+                    android:host="edumanageja.com" />
             </intent-filter>
         </activity>
     </application>
