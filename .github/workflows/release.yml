@@ -30,7 +30,7 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.2'
+          gradle-version: '8.13'
 
       - name: Decode keystore from secret
         run: |
@@ -42,10 +42,12 @@ jobs:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-        run: gradle assembleRelease
+        run: gradle assembleRelease bundleRelease
 
       - name: Rename APK
-        run: mv app/build/outputs/apk/release/app-release.apk EduManage.apk
+        run: |
+          mv app/build/outputs/apk/release/app-release.apk EduManage.apk
+          mv app/build/outputs/bundle/release/app-release.aab EduManage.aab
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -59,7 +61,11 @@ jobs:
             1. Download EduManage.apk below
             2. Open the file on your Android phone
             3. Tap Install (allow "Install from unknown sources" if prompted)
-          files: EduManage.apk
+
+            EduManage.aab is the Google Play upload bundle (see PLAY_STORE.md).
+          files: |
+            EduManage.apk
+            EduManage.aab
           make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

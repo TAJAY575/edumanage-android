@@ -11,3 +11,7 @@ local.properties
 app/keystore.jks
 *.jks
 *.keystore
+
+# never commit signing material
+keystore_b64.txt
+*.b64

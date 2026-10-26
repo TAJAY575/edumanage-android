@@ -4,16 +4,16 @@ plugins {
 
 android {
     namespace 'com.edumanage.app'
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.edumanage.app"
         minSdk 21
-        targetSdk 34
+        targetSdk 36
         // CI passes GITHUB_RUN_NUMBER so every release has a higher versionCode and
         // installs over the previous one (a fixed versionCode refuses to update).
         versionCode Integer.parseInt(System.getenv("GITHUB_RUN_NUMBER") ?: "2")
-        versionName "1.0.1"
+        versionName "1.1.0"
     }
 
     signingConfigs {
@@ -33,12 +33,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 
 dependencies {
-    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.5.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.7.4'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
 }
