@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.edumanage.app"
-        minSdk 21
+        minSdk 24
         targetSdk 36
         // CI passes GITHUB_RUN_NUMBER so every release has a higher versionCode and
         // installs over the previous one (a fixed versionCode refuses to update).
